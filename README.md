@@ -20,6 +20,6 @@ If you find CPPO helpful, please cite our paper.
     author={Ying, Chengyang and Zhou, Xinning and Su, Hang and Yan, Dong and Chen, Ning and Zhu, Jun},
     booktitle={International Joint Conference on Artificial Intelligence},
     year={2022},
-    url={https://arxiv.org/abs/2206.0443}
+    url={https://arxiv.org/abs/2206.04436}
 }
 ```
