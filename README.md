@@ -2,9 +2,13 @@
 
 - This is the official implementation for [Towards Safe Reinforcement Learning via Constraining Conditional Value at Risk](https://arxiv.org/abs/2206.04436) (Accepted in IJCAI 2022).
 
-- This code is based on [Spinning Up](https://github.com/openai/spinningup).
+- The training code is based on [Spinning Up](https://github.com/openai/spinningup).
 
 ## Usage
+- The training code is in the folder './src'.
+
+- These methods, including baselines and our methods, are based on [Spinning Up](https://github.com/openai/spinningup) (we delete unnecessary files to make the code clearer)
+
 ```
 TODO
 ```
