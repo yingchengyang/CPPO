@@ -22,7 +22,10 @@ pip install -e .
 python -m spinup.run vpg --hid "[64,32]" --env Ant-v3 --exp_name Ant/vpg/vpg-seed0 --epochs 750 --seed 0
 python -m spinup.run trpo --hid "[64,32]" --env Ant-v3 --exp_name Ant/trpo/trpo-seed0 --epochs 750 --seed 0
 python -m spinup.run ppo --hid "[64,32]" --env Ant-v3 --exp_name Ant/ppo/ppo-seed0 --epochs 750 --seed 0
+python -m spinup.run cppo --hid "[64,32]" --env Ant-v3 --exp_name Ant/cppo/cppo-seed0 --epochs 750 --seed 0
 ```
+
+- For CPPO, you can also adjust parameters like --beta, --nu_start, --nu_delay, --delay, --cvar_clip_ratio and so on.
 
 
 ## Citation
