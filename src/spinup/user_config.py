@@ -4,7 +4,7 @@ import os.path as osp
 # Default neural network backend for each algo
 # (Must be either 'tf1' or 'pytorch')
 DEFAULT_BACKEND = {
-    'cvarvpg': 'pytorch',
+    'pg_cmdp': 'pytorch',
     'vpg': 'pytorch',
     'trpo': 'tf1',
     'ppo': 'pytorch',
