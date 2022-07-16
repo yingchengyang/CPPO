@@ -5,13 +5,25 @@
 - The training code is based on [Spinning Up](https://github.com/openai/spinningup).
 
 ## Usage
-- The training code is in the folder './src'.
+- The training code is in the folder '/src'.
 
 - These methods, including baselines and our methods, are based on [Spinning Up](https://github.com/openai/spinningup) (we delete unnecessary files to make the code clearer)
 
+- You first should install Spinning Up by
+
 ```
-TODO
+cd src
+pip install -e .
 ```
+
+- Then you can run the training code like
+
+```
+python -m spinup.run vpg --hid "[64,32]" --env Ant-v3 --exp_name Ant/vpg/vpg-seed0 --epochs 750 --seed 0
+python -m spinup.run trpo --hid "[64,32]" --env Ant-v3 --exp_name Ant/trpo/trpo-seed0 --epochs 750 --seed 0
+python -m spinup.run ppo --hid "[64,32]" --env Ant-v3 --exp_name Ant/ppo/ppo-seed0 --epochs 750 --seed 0
+```
+
 
 ## Citation
 
