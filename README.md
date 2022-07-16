@@ -32,7 +32,7 @@ python -m spinup.run cppo --hid "[64,32]" --env Walker2d-v3 --exp_name Ant/cppo/
 
 - Evaluate the performance under transition disturbance (changing mass)
 ```
-python test_mass.py --task Hopper --algos "vpg trpo ppo pg_cmdp cppo" --mass_lower_bound 1.0 --mass_upper_bound 7.5 --mass_number 100 --episodes 5
+python test_mass.py --task Walker2d --algos "vpg trpo ppo cvarvpg cppo" --mass_lower_bound 1.0 --mass_upper_bound 7.0 --mass_number 100 --episodes 5
 ```
 
 - Evaluate the performance under observation disturbance (random noises)
