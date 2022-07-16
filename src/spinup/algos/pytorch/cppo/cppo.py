@@ -3,13 +3,13 @@ import torch
 from torch.optim import Adam
 import gym
 import time
-import spinup.algos.pytorch.cvarppo.core as core
+import spinup.algos.pytorch.cppo.core as core
 from spinup.utils.logx import EpochLogger
 from spinup.utils.mpi_pytorch import setup_pytorch_for_mpi, sync_params, mpi_avg_grads
 from spinup.utils.mpi_tools import mpi_fork, mpi_avg, proc_id, mpi_statistics_scalar, num_procs
 
 
-class CVaRPPOBuffer:
+class CPPOBuffer:
     """
     A buffer for storing trajectories experienced by a PPO agent interacting
     with the environment, and using Generalized Advantage Estimation (GAE-Lambda)
@@ -89,7 +89,7 @@ class CVaRPPOBuffer:
 
 
 
-def cvarppo(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
+def cppo(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
         steps_per_epoch=4000, epochs=50, gamma=0.99, clip_ratio=0.2, pi_lr=3e-4,
         vf_lr=1e-3, train_pi_iters=80, train_v_iters=80, lam=0.97, max_ep_len=1000,
         target_kl=0.01, logger_kwargs=dict(), save_freq=10,
@@ -228,7 +228,7 @@ def cvarppo(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
 
     # Set up experience buffer
     local_steps_per_epoch = int(steps_per_epoch / num_procs())
-    buf = CVaRPPOBuffer(obs_dim, act_dim, local_steps_per_epoch, gamma, lam)
+    buf = CPPOBuffer(obs_dim, act_dim, local_steps_per_epoch, gamma, lam)
 
     # parameter of cvar
     nu = nu_start
@@ -434,7 +434,7 @@ if __name__ == '__main__':
     from spinup.utils.run_utils import setup_logger_kwargs
     logger_kwargs = setup_logger_kwargs(args.exp_name, args.seed)
 
-    cvarppo(lambda : gym.make(args.env), actor_critic=core.MLPActorCritic,
+    cppo(lambda : gym.make(args.env), actor_critic=core.MLPActorCritic,
         ac_kwargs=dict(hidden_sizes=[args.hid]*args.l), gamma=args.gamma, 
         seed=args.seed, steps_per_epoch=args.steps, epochs=args.epochs,
         logger_kwargs=logger_kwargs)

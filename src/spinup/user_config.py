@@ -11,7 +11,7 @@ DEFAULT_BACKEND = {
     'ddpg': 'pytorch',
     'td3': 'pytorch',
     'sac': 'pytorch',
-    'cvarppo': 'pytorch'
+    'cppo': 'pytorch'
 }
 
 # Where experiment outputs are saved by default:
