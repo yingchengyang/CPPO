@@ -336,13 +336,6 @@ def cppo(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
                     update_num += 1
                     # print("v", v)
                 updates = np.float32(updates)
-                # new_v = v - updates
-                # new_v = v
-                # print(lam)
-                # print(1)
-                # print("new_v:", new_v)
-                # print("v", v)
-                # print(nu - ep_ret - v + r)
 
             # save and log
             # print("updates: ", updates)
@@ -376,12 +369,7 @@ def cppo(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
         if trajectory_num > 0:
             nu_delta = nu_delta / trajectory_num
         nu = nu_delta * nu_delay
-        # nu = nu - nu_lr * lam * (bad_trajectory_num / trajectory_num) / (1 - alpha)
-        lam = lam + lam_lr * lam_delta / (1 - alpha)
-        if lam < lam_low_bound:
-            lam = lam_low_bound
-        if lam > 0.1:
-            lam = 0.1
+        
 
 
         # Save model
@@ -412,7 +400,7 @@ def cppo(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
         print("bad_trajectory_num:", bad_trajectory_num)
         print("update num:", update_num)
         print("nu:", nu)
-        print("lam:", lam)
+        print("lam:", cvarlam)
         print("-" * 37, flush=True)
 
 if __name__ == '__main__':
