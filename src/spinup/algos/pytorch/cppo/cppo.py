@@ -93,7 +93,7 @@ def cppo(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
         steps_per_epoch=4000, epochs=50, gamma=0.99, clip_ratio=0.2, pi_lr=3e-4,
         vf_lr=1e-3, train_pi_iters=80, train_v_iters=80, lam=0.97, max_ep_len=1000,
         target_kl=0.01, logger_kwargs=dict(), save_freq=10,
-        alpha=0.9, beta=0.0, nu_lr=1e-3, lam_lr=1e-3, nu_start=0.0, lam_start=0.5,
+        alpha=0.9, beta=2800.0, nu_lr=1e-3, lam_lr=1e-3, nu_start=0.0, lam_start=0.5,
         nu_delay=0.8, lam_low_bound=0.001, delay=1.0, cvar_clip_ratio=0.05
         ):
     """
