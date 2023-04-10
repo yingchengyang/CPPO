@@ -1,5 +1,7 @@
 # CPPO
 
+[![arXiv](https://img.shields.io/badge/arXiv-2206.04436-b31b1b.svg)](https://arxiv.org/abs/2206.04436)
+
 - This is the official implementation for [Towards Safe Reinforcement Learning via Constraining Conditional Value at Risk](https://www.ijcai.org/proceedings/2022/0510.pdf) (Accepted in IJCAI 2022).
 
 - The training code is based on [Spinning Up](https://github.com/openai/spinningup).
