@@ -24,7 +24,7 @@ pip install -e .
 python -m spinup.run vpg --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/vpg/vpg-seed0 --epochs 750 --seed 0
 python -m spinup.run trpo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/trpo/trpo-seed0 --epochs 750 --seed 0
 python -m spinup.run ppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/ppo/ppo-seed0 --epochs 750 --seed 0
-python -m spinup.run pg_cmdp --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/pg_cmdp/pg_cmdp-seed0 --epochs 750 --seed 0 
+python -m spinup.run pg_cmdp --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/pg_cmdp/pg_cmdp-seed0 --epochs 750 --seed 0 --delay 0.8 --nu_delay 0.8
 python -m spinup.run cppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/cvarppo/cvarppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.99 --nu_delay 0.3 --delay 0.0018 --cvar_clip_ratio 0.01
 ```
 
