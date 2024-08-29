@@ -25,7 +25,6 @@ python -m spinup.run vpg --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/v
 python -m spinup.run trpo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/trpo/trpo-seed0 --epochs 750 --seed 0
 python -m spinup.run ppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/ppo/ppo-seed0 --epochs 750 --seed 0
 python -m spinup.run pg_cmdp --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/pg_cmdp/pg_cmdp-seed0 --epochs 750 --seed 0 --delay 0.8 --nu_delay 0.8
-python -m spinup.run cppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/cvarppo/cvarppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.99 --nu_delay 0.3 --delay 0.0018 --cvar_clip_ratio 0.01
 ```
 
 - For PG-CMDP, you can also adjust parameters like --delay, --nu_delay and so on.
@@ -34,10 +33,10 @@ python -m spinup.run cppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/
 
 ```
 python -m spinup.run cppo --hid "[64,32]" --env Ant-v3 --exp_name Ant/cppo/cppo-seed0 --epochs 750 --seed 0 --beta 2800 --nu_start 10.0 --gamma 0.99 --nu_delay 0.2 --delay 0.0024 --cvar_clip_ratio 0.018
-python -m spinup.run cvarppo --hid "[64,32]" --env HalfCheetah-v3 --exp_name HalfCheetah/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.99 --nu_delay 0.3 --delay 0.0002 --cvar_clip_ratio 0.01
-python -m spinup.run cvarppo --hid "[64,32]" --env Hopper-v3 --exp_name Hopper/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.999 --nu_delay 0.3 --delay 0.002 --cvar_clip_ratio 0.027
-python -m spinup.run cvarppo --hid "[64,32]" --env Swimmer-v3 --exp_name Swimmer/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 122 --nu_start -20.0 --gamma 0.999 --nu_delay 0.3 --delay 0.002 --cvar_clip_ratio 0.03
-python -m spinup.run cvarppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.99 --nu_delay 0.3 --delay 0.0018 --cvar_clip_ratio 0.01
+python -m spinup.run cppo --hid "[64,32]" --env HalfCheetah-v3 --exp_name HalfCheetah/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.99 --nu_delay 0.3 --delay 0.0002 --cvar_clip_ratio 0.01
+python -m spinup.run cppo --hid "[64,32]" --env Hopper-v3 --exp_name Hopper/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.999 --nu_delay 0.3 --delay 0.002 --cvar_clip_ratio 0.027
+python -m spinup.run cppo --hid "[64,32]" --env Swimmer-v3 --exp_name Swimmer/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 122 --nu_start -20.0 --gamma 0.999 --nu_delay 0.3 --delay 0.002 --cvar_clip_ratio 0.03
+python -m spinup.run cppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.99 --nu_delay 0.3 --delay 0.0018 --cvar_clip_ratio 0.01
 ```
 
 - For CPPO, you can also adjust parameters like --beta, --nu_start, --nu_delay, --delay, --cvar_clip_ratio and so on.
