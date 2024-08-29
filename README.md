@@ -27,7 +27,7 @@ python -m spinup.run ppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/p
 python -m spinup.run pg_cmdp --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/pg_cmdp/pg_cmdp-seed0 --epochs 750 --seed 0 --delay 0.8 --nu_delay 0.8
 ```
 
-- For PG-CMDP, you can also adjust parameters like --delay, --nu_delay and so on.
+- For PG-CMDP, you can adjust hyperparameters like --delay, --nu_delay and so on.
 
 - You can train agents of CPPO for all five environments reported in the paper with the training code as below
 
@@ -39,7 +39,7 @@ python -m spinup.run cppo --hid "[64,32]" --env Swimmer-v3 --exp_name Swimmer/cv
 python -m spinup.run cppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.99 --nu_delay 0.3 --delay 0.0018 --cvar_clip_ratio 0.01
 ```
 
-- For CPPO, you can also adjust parameters like --beta, --nu_start, --nu_delay, --delay, --cvar_clip_ratio and so on.
+- For CPPO, you can adjust hyperparameters like --beta, --nu_start, --nu_delay, --delay, --cvar_clip_ratio and so on.
 
 - Evaluate the performance under transition disturbance (changing mass)
 ```
