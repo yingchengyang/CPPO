@@ -13,14 +13,14 @@
 
 - You first should install Spinning Up by
 
-```
+```sh
 cd src
 pip install -e .
 ```
 
 - Then you can train agents of baselines, including VPG, TRPO, PPO, and PG-CMDP, by the training code like
 
-```
+```python3
 python -m spinup.run vpg --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/vpg/vpg-seed0 --epochs 750 --seed 0
 python -m spinup.run trpo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/trpo/trpo-seed0 --epochs 750 --seed 0
 python -m spinup.run ppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/ppo/ppo-seed0 --epochs 750 --seed 0
@@ -31,7 +31,7 @@ python -m spinup.run pg_cmdp --hid "[64,32]" --env Walker2d-v3 --exp_name Walker
 
 - You can train agents of CPPO for all five environments reported in the paper with the training code as below
 
-```
+```python3
 python -m spinup.run cppo --hid "[64,32]" --env Ant-v3 --exp_name Ant/cppo/cppo-seed0 --epochs 750 --seed 0 --beta 2800 --nu_start 10.0 --gamma 0.99 --nu_delay 0.2 --delay 0.0024 --cvar_clip_ratio 0.018
 python -m spinup.run cppo --hid "[64,32]" --env HalfCheetah-v3 --exp_name HalfCheetah/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.99 --nu_delay 0.3 --delay 0.0002 --cvar_clip_ratio 0.01
 python -m spinup.run cppo --hid "[64,32]" --env Hopper-v3 --exp_name Hopper/cvarppo/cppo-seed0 --epochs 750 --seed 0 --beta 2500 --nu_start 10.0 --gamma 0.999 --nu_delay 0.3 --delay 0.002 --cvar_clip_ratio 0.027
@@ -42,18 +42,29 @@ python -m spinup.run cppo --hid "[64,32]" --env Walker2d-v3 --exp_name Walker2d/
 - For CPPO, you can adjust hyperparameters like --beta, --nu_start, --nu_delay, --delay, --cvar_clip_ratio and so on.
 
 - Evaluate the performance under transition disturbance (changing mass)
-```
-python test_mass.py --task Walker2d --algos "vpg trpo ppo cvarvpg cppo" --mass_lower_bound 1.0 --mass_upper_bound 7.0 --mass_number 100 --episodes 5
+```python3
+python test_mass.py --task Hopper --algos "vpg trpo ppo pg_cmdp cppo" --mass_lower_bound 1.0 --mass_upper_bound 4.0 --mass_number 100 --episodes 5
+python test_mass.py --task Swimmer --algos "vpg trpo ppo pg_cmdp cppo" --mass_lower_bound 25.0 --mass_upper_bound 55.0 --mass_number 100 --episodes 5
+python test_mass.py --task Walker2d --algos "vpg trpo ppo pg_cmdp cppo" --mass_lower_bound 1.0 --mass_upper_bound 7.0 --mass_number 100 --episodes 5
+python test_mass.py --task HalfCheetah --algos "vpg trpo ppo pg_cmdp cppo" --mass_lower_bound 3.0 --mass_upper_bound 10.0 --mass_number 100 --episodes 5
+
 ```
 
 - Evaluate the performance under observation disturbance (random noises)
-```
+```python3
 python test_state.py --task Walker2d --algos "vpg trpo ppo pg_cmdp cppo" --epsilon_low 0.0 --epsilon_upp 0.4 --epsilon_num 100 --episodes 5
+python test_state.py --task Hopper --algos "vpg trpo ppo pg_cmdp cppo" --epsilon_low 0.0 --epsilon_upp 0.1 --epsilon_num 100 --episodes 5
+python test_state.py --task Swimmer --algos "vpg trpo ppo pg_cmdp cppo" --epsilon_low 0.0 --epsilon_upp 0.4 --epsilon_num 100 --episodes 5
+python test_state.py --task HalfCheetah --algos "vpg trpo ppo pg_cmdp cppo" --epsilon_low 0.0 --epsilon_upp 0.5 --epsilon_num 100 --episodes 5
 ```
 
 - Evaluate the performance under observation disturbance (adversarial noises)
-```
+```python3
 python test_state_adversary.py --task Walker2d --algos "vpg trpo ppo pg_cmdp cppo" --epsilon_low 0.0 --epsilon_upp 0.2 --epsilon_num 100 --episodes 5
+python test_state_adversary.py --task Hopper --algos "vpg trpo ppo pg_cmdp cppo" --epsilon_low 0.0 --epsilon_upp 0.1 --epsilon_num 100 --episodes 5
+python test_state_adversary.py --task Swimmer --algos "vpg trpo ppo pg_cmdp cppo" --epsilon_low 0.0 --epsilon_upp 0.4 --epsilon_num 100 --episodes 5
+python test_state_adversary.py --task HalfCheetah --algos "vpg trpo ppo pg_cmdp cppo" --epsilon_low 0.0 --epsilon_upp 0.5 --epsilon_num 100 --episodes 5
+
 ```
 
 
